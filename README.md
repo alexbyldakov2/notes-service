@@ -14,6 +14,7 @@
 ### 1. Запуск базы данных PostgreSQL
 
 Выполните команду:
+
 docker run --name postgres-notes -e POSTGRES_PASSWORD=password -e POSTGRES_DB=notes_service -p 5432:5432 -d postgres:15
 
 Настройки подключения к базе данных:
@@ -30,12 +31,15 @@ docker run --name postgres-notes -e POSTGRES_PASSWORD=password -e POSTGRES_DB=no
 
 ### 3. Запуск бэкенда и фронтенда
 Установка зависимостей:
+
 npm i
 
 Сборка проекта:
+
 npm run build
 
 Запуск в режиме разработки:
+
 npm run dev
 
 ## API Endpoints
