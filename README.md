@@ -40,20 +40,6 @@ npm run build
 
 Для запуска можно использовать run_all.bat
 
-## API Endpoints
-
-Health Check:
-curl http://localhost:3000/health
-
-Получить все заметки:
-curl http://localhost:3000/api/notes
-
-Получить заметку по ID:
-curl http://localhost:3000/api/notes/1
-
-Удалить заметку:
-curl -X DELETE http://localhost:3000/api/notes/1
-
 ## Проверенные версии
 
 - Node.js: v20.19.5
