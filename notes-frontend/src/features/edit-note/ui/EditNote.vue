@@ -144,13 +144,6 @@ defineEmits<{
                     Сброс
                 </NoteButton>
             </div>
-
-            <div class="mt-4 text-xs text-gray-500 space-y-1">
-                <div>Создано: {{ formatDate(note.createdAt) }}</div>
-                <div v-if="note.updatedAt !== note.createdAt">
-                    Изменено: {{ formatDate(note.updatedAt) }}
-                </div>
-            </div>
         </form>
     </div>
 
