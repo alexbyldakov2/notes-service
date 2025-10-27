@@ -38,9 +38,7 @@ npm i
 
 npm run build
 
-Запуск в режиме разработки:
-
-npm run dev
+Для запуска можно использовать run_all.bat
 
 ## API Endpoints
 
