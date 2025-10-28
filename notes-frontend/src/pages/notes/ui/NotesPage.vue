@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useNotesStore } from '@/entities'
-import CategorySidebar from '@/widgets/category-sidebar/ui/CategorySidebar.vue'
-import NotesList from '@/widgets/notes-list/ui/NotesList.vue'
-import CreateNote from '@/features/create-note/ui/CreateNote.vue'
-import EditNote from '@/features/edit-note/ui/EditNote.vue'
+import { CategorySidebar, NotesList } from '@/widgets'
+import { CreateNote, EditNote } from '@/features'
 
 const notesStore = useNotesStore()
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import NotesPage from '@/pages/notes/ui/NotesPage.vue'
+import { NotesPage } from '@/pages/notes'
 </script>
 
 <template>
