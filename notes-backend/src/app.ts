@@ -6,6 +6,7 @@ import * as dotenv from 'dotenv';
 
 import { initializeDatabase } from './config/database';
 import notesRoutes from './routes/notesRoutes';
+import categoriesRoutes from './routes/categoriesRoutes';
 
 // Загрузка переменных окружения
 dotenv.config();
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/notes', notesRoutes);
+app.use('/api/categories', categoriesRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {

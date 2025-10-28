@@ -24,6 +24,8 @@ docker run --name postgres-notes -e POSTGRES_PASSWORD=password -e POSTGRES_DB=no
 - Username: postgres
 - Password: password
 
+Либо введите собственные параметры в notes-backend/.env
+
 ### 2. Настройка базы данных
 
 1. Подключитесь к базе данных используя DBeaver или другой SQL-клиент
@@ -44,11 +46,6 @@ npm run build
 
 - Node.js: v20.19.5
 - TypeScript: 4.8.4
-
-## Структура проекта
-
-- migrations/ - скрипты миграции базы данных
-- src/ - исходный код приложения
 
 ## Примечания
 

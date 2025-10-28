@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import { Note } from '../entities/Note';
+import { Category } from '../entities/Category';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER || 'postgres',
   password: process.env.DB_PASS || 'password',
   database: process.env.DB_NAME || 'notes_service',
-  entities: [Note],
+  entities: [Note, Category],
   synchronize: false, // Не используем в продакшене
   logging: process.env.NODE_ENV === 'development',
 });
