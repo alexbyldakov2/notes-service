@@ -62,7 +62,6 @@ const startServer = async (): Promise<void> => {
         // Запуск сервера
         app.listen(PORT, () => {
             console.log(`🚀 Server is running on http://localhost:${PORT}`);
-            console.log(`📝 API endpoints available at http://localhost:${PORT}/api/notes`);
             console.log(`❤️  Health check at http://localhost:${PORT}/health`);
             console.log(`🌐 Environment: ${process.env.NODE_ENV}`);
         });
