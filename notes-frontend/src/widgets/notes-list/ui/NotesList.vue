@@ -2,6 +2,7 @@
 import { storeToRefs } from 'pinia'
 import { useNotesStore, NoteCard } from '@/entities'
 import { NoteButton, NoteLoader } from '@/shared'
+import { SearchNotes } from '@/features'
 
 const notesStore = useNotesStore()
 const { notes, currentNote, isLoading } = storeToRefs(notesStore)
@@ -16,13 +17,17 @@ defineEmits<{
 <template>
     <div class="h-full flex flex-col">
         <div class="flex justify-between items-center mb-6">
-            <h2 class="text-2xl font-bold text-gray-800">Мои заметки</h2>
             <NoteButton @click="$emit('createNote')" class="flex items-center gap-2">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                 </svg>
                 Новая заметка
             </NoteButton>
+        </div>
+
+        <!-- Поле поиска -->
+        <div class="mb-4">
+            <SearchNotes />
         </div>
 
         <NoteLoader v-if="isLoading" />

@@ -11,14 +11,35 @@ const categoryRepository = AppDataSource.getRepository(Category);
 export const getAllNotes = async (req: Request, res: Response): Promise<void> => {
     try {
         const categoryId = req.query.category ? parseInt(req.query.category as string) : undefined;
+        const search = req.query.search as string | undefined;
 
         let query = noteRepository
             .createQueryBuilder('note')
             .leftJoinAndSelect('note.category', 'category')
             .orderBy('note.createdAt', 'DESC');
 
+        // Фильтрация по категории
         if (categoryId) {
             query = query.where('note.categoryId = :categoryId', { categoryId });
+        }
+
+        // Полнотекстовый поиск
+        if (search && search.trim()) {
+            query = query
+                .andWhere(
+                    `(to_tsvector('russian', note.title || ' ' || note.content) @@ to_tsquery('russian', :search) 
+          OR note.title ILIKE :likeSearch 
+          OR note.content ILIKE :likeSearch)`,
+                    {
+                        search: search.trim().replace(/\s+/g, ' & '),
+                        likeSearch: `%${search.trim()}%`
+                    }
+                )
+                .addOrderBy(
+                    `ts_rank(to_tsvector('russian', note.title || ' ' || note.content), to_tsquery('russian', :search))`,
+                    'DESC'
+                )
+                .setParameter('search', search.trim().replace(/\s+/g, ' & '));
         }
 
         const notes = await query.getMany();
