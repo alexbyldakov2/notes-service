@@ -1,4 +1,4 @@
 export class UpdateCategoryDto {
-  name?: string;
-  color?: string;
+    name?: string;
+    color?: string;
 }

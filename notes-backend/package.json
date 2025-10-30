@@ -9,7 +9,12 @@
     "start": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["notes", "api", "express", "typescript"],
+  "keywords": [
+    "notes",
+    "api",
+    "express",
+    "typescript"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -29,6 +34,9 @@
     "@types/express": "^4.17.21",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.8.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
+    "@typescript-eslint/parser": "^8.46.2",
+    "eslint": "^9.38.0",
     "nodemon": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"

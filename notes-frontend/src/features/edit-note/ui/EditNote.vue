@@ -2,14 +2,8 @@
 import { ref, reactive, watch, computed } from 'vue'
 import { storeToRefs } from "pinia";
 import { useNotesStore } from '@/entities'
-//import type { Note } from '@/entities/note/model/types'
 import { NoteButton, NoteInput, NoteLoader, TextArea } from '@/shared'
 
-// interface Props {
-//     noteId: number | null
-// }
-
-//const props = defineProps<Props>()
 const notesStore = useNotesStore()
 const { currentNote } = storeToRefs(notesStore)
 
@@ -85,16 +79,6 @@ const handleSubmit = async () => {
     } finally {
         isSubmitting.value = false
     }
-}
-
-const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleString('ru-RU', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    })
 }
 
 defineEmits<{
